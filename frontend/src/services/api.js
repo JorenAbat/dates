@@ -1,4 +1,4 @@
-const API_URL = process.env.REACT_APP_API_URL || 'https://dates.jorellsy.com/api';
+const API_URL = process.env.REACT_APP_API_URL || 'https://dates-backend.jorellsy.com/api';
 console.log('API_URL:', API_URL);
 
 // Auth endpoints
