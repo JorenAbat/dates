@@ -17,7 +17,9 @@ app.use(cors({
   origin: [
     process.env.FRONTEND_URL || 'http://localhost:3000',
     'http://dates.jorellsy.com',
-    'https://dates.jorellsy.com'
+    'https://dates.jorellsy.com',
+    'http://dates-backend.jorellsy.com',
+    'https://dates-backend.jorellsy.com'
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
