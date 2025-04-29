@@ -40,6 +40,10 @@ logs/
 /coverage
 .nyc_output
 
+# Documentation
+/docs
+/documentation
+
 # Misc
 .cache/
 .temp/
