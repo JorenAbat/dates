@@ -21,10 +21,14 @@ app.use(cors({
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  secure: true
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Set secure cookie options
+app.set('trust proxy', 1);
 
 // Routes
 app.use('/api/auth', authRoutes);
