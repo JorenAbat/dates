@@ -44,7 +44,7 @@ services:
       - POSTGRES_DB=${POSTGRES_DB}
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./backend/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./backend/init.sql:/docker-entrypoint-initdb.d/01-init.sql
     networks:
       - app-network
     healthcheck:
@@ -52,6 +52,20 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+    command: >
+      bash -c "
+        # Wait for PostgreSQL to be ready
+        while ! pg_isready -U ${POSTGRES_USER}; do
+          echo 'Waiting for PostgreSQL...'
+          sleep 1
+        done
+        
+        # Create the database if it doesn't exist
+        psql -U ${POSTGRES_USER} -tc \"SELECT 1 FROM pg_database WHERE datname = '${POSTGRES_DB}'\" | grep -q 1 || psql -U ${POSTGRES_USER} -c \"CREATE DATABASE ${POSTGRES_DB}\"
+        
+        # Start PostgreSQL
+        docker-entrypoint.sh postgres
+      "
 
 networks:
   app-network:
