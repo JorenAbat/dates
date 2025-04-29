@@ -1,4 +1,5 @@
-const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = process.env.REACT_APP_API_URL || 'http://backend:5000/api';
+console.log('API_URL:', API_URL);
 
 // Auth endpoints
 export const login = async (credentials) => {
