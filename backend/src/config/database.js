@@ -10,10 +10,7 @@ const pool = new Pool({
   max: 20,
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 2000,
-  ssl: process.env.NODE_ENV === 'production' ? {
-    rejectUnauthorized: false,
-    sslmode: 'require'
-  } : false
+  ssl: false // Disable SSL for internal Docker network communication
 });
 
 // Test the connection
