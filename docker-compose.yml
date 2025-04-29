@@ -35,6 +35,7 @@ services:
 
   db:
     image: postgres:15-alpine
+    user: postgres
     ports:
       - "5432:5432"
     environment:
@@ -50,20 +51,6 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
-    command: >
-      bash -c "
-        if [ -d /var/lib/postgresql/data/pgdata ]; then
-          echo 'Database already exists, skipping initialization'
-        else
-          echo 'Initializing database...'
-          mkdir -p /var/lib/postgresql/data/pgdata
-          initdb -D /var/lib/postgresql/data/pgdata
-          pg_ctl -D /var/lib/postgresql/data/pgdata start
-          psql -U ${POSTGRES_USER} -c \"CREATE DATABASE ${POSTGRES_DB};\"
-          pg_ctl -D /var/lib/postgresql/data/pgdata stop
-        fi
-        exec postgres -D /var/lib/postgresql/data/pgdata
-      "
 
 networks:
   app-network:
