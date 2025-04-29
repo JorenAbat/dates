@@ -1,0 +1,236 @@
+.date-picker-container {
+  position: relative;
+  width: 100%;
+}
+
+/* Override react-datepicker styles */
+.react-datepicker-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.react-datepicker-popper {
+  z-index: 9999 !important;
+}
+
+.date-picker-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.date-picker-input:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+/* Override react-datepicker styles */
+.react-datepicker {
+  font-family: inherit;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.react-datepicker__header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #ccc;
+  padding: 8px;
+}
+
+.react-datepicker__day {
+  margin: 2px;
+  padding: 4px;
+}
+
+.react-datepicker__day--selected {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.react-datepicker__day--selected:hover {
+  background-color: #357abd;
+}
+
+.react-datepicker__time-container {
+  border-left: 1px solid #ccc;
+}
+
+.react-datepicker__time-box {
+  width: 100px;
+}
+
+.react-datepicker__time-list-item {
+  padding: 8px 10px;
+}
+
+.react-datepicker__time-list-item--selected {
+  background-color: #4a90e2 !important;
+  color: white;
+}
+
+.date-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.date-display:hover {
+  border-color: #6366f1;
+}
+
+.date-text {
+  font-size: 0.875rem;
+  color: #1f2937;
+}
+
+.calendar-toggle {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  transition: all 0.2s;
+}
+
+.calendar-toggle:hover {
+  background-color: #f3f4f6;
+}
+
+.date-picker {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  margin-top: 0.5rem;
+  border: 1px solid #e5e7eb;
+}
+
+.date-picker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.month-nav-button {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  color: #4b5563;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  transition: all 0.2s;
+}
+
+.month-nav-button:hover {
+  background-color: #f3f4f6;
+  color: #1f2937;
+}
+
+.current-month {
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.date-picker-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.day-header {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #6b7280;
+  padding: 0.25rem;
+}
+
+.empty-day {
+  height: 32px;
+}
+
+.day-button {
+  background: none;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: #1f2937;
+  transition: all 0.2s;
+  margin: 0 auto;
+}
+
+.day-button:hover {
+  background-color: #f3f4f6;
+}
+
+.day-button.selected {
+  background-color: #6366f1;
+  color: white;
+}
+
+.time-picker {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 1rem;
+}
+
+.time-inputs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.time-input {
+  width: 40px;
+  padding: 0.25rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.25rem;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.time-input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.ampm-select {
+  padding: 0.25rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  background: white;
+  cursor: pointer;
+}
+
+.ampm-select:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+} 

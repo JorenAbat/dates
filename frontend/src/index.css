@@ -1,0 +1,56 @@
+/* Base styles with sakura theme */
+:root {
+  --sakura-pink: #ffb7c5;
+  --sakura-dark: #e6a4b4;
+  --sakura-light: #fff0f5;
+  --sakura-accent: #ff69b4;
+  --text-color: #4a4a4a;
+}
+
+body {
+  margin: 0;
+  font-family: 'Comic Sans MS', 'Marker Felt', 'Arial Rounded MT Bold', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, var(--sakura-light) 0%, #fff 100%);
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+/* Add sakura petal animation */
+@keyframes falling {
+  0% {
+    transform: translate(0, -10px) rotate(0deg);
+  }
+  100% {
+    transform: translate(100px, 100vh) rotate(360deg);
+  }
+}
+
+.sakura-petal {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: var(--sakura-pink);
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: falling 10s linear infinite;
+  z-index: 0;
+}
+
+/* Create multiple petals */
+.sakura-petal:nth-child(1) { left: 10%; animation-delay: 0s; }
+.sakura-petal:nth-child(2) { left: 20%; animation-delay: 2s; }
+.sakura-petal:nth-child(3) { left: 30%; animation-delay: 4s; }
+.sakura-petal:nth-child(4) { left: 40%; animation-delay: 6s; }
+.sakura-petal:nth-child(5) { left: 50%; animation-delay: 8s; }
+.sakura-petal:nth-child(6) { left: 60%; animation-delay: 10s; }
+.sakura-petal:nth-child(7) { left: 70%; animation-delay: 12s; }
+.sakura-petal:nth-child(8) { left: 80%; animation-delay: 14s; }
+.sakura-petal:nth-child(9) { left: 90%; animation-delay: 16s; }
+.sakura-petal:nth-child(10) { left: 100%; animation-delay: 18s; }
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
