@@ -49,6 +49,7 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     environment:
+      - NODE_ENV=production
       - REACT_APP_API_URL=https://dates-backend.jorellsy.com/api
     ports:
       - "3000:3000"

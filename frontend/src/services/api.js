@@ -1,5 +1,8 @@
+// Get the API URL from environment variable or use the appropriate default
 const API_URL = process.env.REACT_APP_API_URL || 'https://dates-backend.jorellsy.com/api';
+
 console.log('API_URL:', API_URL);
+console.log('NODE_ENV:', process.env.NODE_ENV);
 
 // Auth endpoints
 export const login = async (credentials) => {
@@ -15,15 +18,33 @@ export const login = async (credentials) => {
 };
 
 export const register = async (userData) => {
-  const response = await fetch(`${API_URL}/auth/register`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(userData),
-  });
-  if (!response.ok) throw new Error('Registration failed');
-  return response.json();
+  console.log('Attempting to register with:', { ...userData, password: '[REDACTED]' });
+  console.log('Using API URL:', API_URL);
+  
+  try {
+    const response = await fetch(`${API_URL}/auth/register`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userData),
+    });
+    
+    console.log('Registration response status:', response.status);
+    
+    if (!response.ok) {
+      const errorData = await response.json().catch(e => ({ message: 'No error details available' }));
+      console.error('Registration failed:', errorData);
+      throw new Error(errorData.message || 'Registration failed');
+    }
+    
+    const data = await response.json();
+    console.log('Registration successful:', { ...data, token: '[REDACTED]' });
+    return data;
+  } catch (error) {
+    console.error('Registration error:', error);
+    throw error;
+  }
 };
 
 // Profile endpoints
